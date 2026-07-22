@@ -4,6 +4,10 @@ Neste projeto, construí um **API Gateway Reativo** para atuar como porta de ent
 
 O foco principal foi a implementação de um **Rate Limiter**. Caso um cliente tente enviar requisições acima do limite configurado, o Gateway intercepta a chamada, protege o servidor de destino e devolve o status HTTP `429 Too Many Requests`.
 
+Este é um projeto simples que desenvolvi focando nos meus estudos de arquitetura de software. O objetivo principal foi colocar a mão na massa e **agregar conhecimento** sobre como proteger microsserviços contra acessos abusivos e picos de tráfego usando um **API Gateway Reativo**. 
+
+ o Gateway atua como porta de entrada, protege o servidor de destino e devolve o status HTTP `429 Too Many Requests` se o limite de tráfego for estourado.
+
 ## 🛠️ Tecnologias Utilizadas
 * **Java 21**
 * **Spring Cloud Gateway (WebFlux):** Utilizei a arquitetura não-bloqueante (reativa) baseada no Netty para suportar alta concorrência sem travar threads.
