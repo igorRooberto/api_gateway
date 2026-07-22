@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: ApiGateway
+
+  data:
+    redis:
+      host: localhost
+      port : 6379
+
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: rota_users
+              uri: https://jsonplaceholder.typicode.com
+              predicates:
+                - Path=/users/**
+              filters:
+                - name: RequestRateLimiter
+                  args:
+                    redis-rate-limiter.replenishRate: 2
+                    redis-rate-limiter.burstCapacity: 5
+                    key-resolver: "#{@ipKeyResolver}"
